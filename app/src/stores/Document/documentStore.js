@@ -1,9 +1,11 @@
 import { action, makeObservable, observable } from 'mobx';
+import { toast } from 'react-toastify';
 import ioClient from 'socket.io-client';
 
 export class DocumentStore {
     @observable documentBody = '';
     @observable activeUsers = [];
+    @observable activeUserListReceived = false;
 
     socket = ioClient('http://127.0.0.1:3001'); // Establish a socket connection with the server.
 
@@ -18,7 +20,7 @@ export class DocumentStore {
         });
 
         this.socket.on('user-list-updated', value => {
-            this.updateUserListRaw(value);
+            this.updateUserList(value);
         });
     }
 
@@ -29,6 +31,15 @@ export class DocumentStore {
 
     @action updateDocumentBodyRaw = value => {
         this.documentBody = value;
+    }
+
+    @action updateUserList = value => {
+        if(this.activeUserListReceived && value.length > this.activeUsers.length) {
+            toast('Another user has appeared', { position: toast.POSITION.BOTTOM_CENTER});
+        }
+
+        this.updateUserListRaw(value);
+        this.activeUserListReceived = true;
     }
 
     @action updateUserListRaw = value => {
