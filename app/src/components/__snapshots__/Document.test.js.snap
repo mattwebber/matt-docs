@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Document component It should pass document body changes to the store and re-render appropriately 1`] = `
+<div
+  className="sc-bdfBwQ gEaXWr"
+>
+  <div
+    className="sc-gsTCUz hHmTEf"
+  >
+    My Document!
+  </div>
+  <textarea
+    className="sc-dlfnbm hHsrQj document-input"
+    onChange={[Function]}
+    placeholder="Document body..."
+    value=""
+  />
+</div>
+`;
+
+exports[`Document component It should pass document body changes to the store and re-render appropriately 2`] = `
+<div
+  className="sc-bdfBwQ gEaXWr"
+>
+  <div
+    className="sc-gsTCUz hHmTEf"
+  >
+    My Document!
+  </div>
+  <textarea
+    className="sc-dlfnbm hHsrQj document-input"
+    onChange={[Function]}
+    placeholder="Document body..."
+    value="hello"
+  />
+</div>
+`;
+
+exports[`Document component It should render document body changes 1`] = `
+<div
+  className="sc-bdfBwQ gEaXWr"
+>
+  <div
+    className="sc-gsTCUz hHmTEf"
+  >
+    My Document!
+  </div>
+  <textarea
+    className="sc-dlfnbm hHsrQj document-input"
+    onChange={[Function]}
+    placeholder="Document body..."
+    value=""
+  />
+</div>
+`;
+
+exports[`Document component It should render document body changes 2`] = `
+<div
+  className="sc-bdfBwQ gEaXWr"
+>
+  <div
+    className="sc-gsTCUz hHmTEf"
+  >
+    My Document!
+  </div>
+  <textarea
+    className="sc-dlfnbm hHsrQj document-input"
+    onChange={[Function]}
+    placeholder="Document body..."
+    value="hello"
+  />
+</div>
+`;
