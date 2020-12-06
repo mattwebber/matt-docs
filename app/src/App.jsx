@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Provider } from 'mobx-react';
 import { DocumentStore } from './stores';
-import { Document } from './components/';
+import { Home } from './components/';
 
 const documentStore = new DocumentStore();
 
@@ -14,7 +14,7 @@ export class App extends React.Component {
         return (
             <Provider stores={stores}>
                 <div className="App">
-                    <Document />
+                    <Home />
                 </div>
             </Provider>
         );

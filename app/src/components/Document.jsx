@@ -19,7 +19,7 @@ const Title = styled.div`
 `;
 
 const DocumentInput = styled.textarea`
-    height: 700px;
+    height: 500px;
     width: 400px;
 `;
 
