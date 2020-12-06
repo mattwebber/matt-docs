@@ -1,0 +1,23 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "The server for the matt-docs application.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.mjs",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+  },
+  "author": "Matt Webber",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "http": "0.0.1-security",
+    "moment": "^2.29.1",
+    "socket.io": "^3.0.3",
+    "uuid": "^8.3.1"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
+}
