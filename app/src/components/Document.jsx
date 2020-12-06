@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { inject, observer } from 'mobx-react';
 import styled from 'styled-components';
+import { SyncLoader } from 'react-spinners';
 
 const Wrapper = styled.div`
     display: flex;
@@ -18,14 +19,26 @@ const Title = styled.div`
     font-size: 24px;
 `;
 
-const DocumentInput = styled.textarea`
+const InputWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 500px;
     width: 400px;
+`;
+
+const DocumentInput = styled.textarea`
+    height: 100%;
+    width: 100%;
 `;
 
 @inject('stores')
 @observer
 export class Document extends React.Component {
+    get spinnerVisible() {
+        return !this.store.documentBodyReceived;
+    }
+
     get documentBody() {
         return this.store.documentBody;
     }
@@ -41,13 +54,25 @@ export class Document extends React.Component {
     render() {
         return (
             <Wrapper>
-                <Title>My Document!</Title>
-                <DocumentInput
-                    className='document-input'
-                    onChange={e => this.updateDocumentBody(e.target.value)}
-                    placeholder='Document body...'
-                    value={this.documentBody}
-                />
+                <Title>Matt Docs</Title>
+                <InputWrapper>
+                    {
+                        this.spinnerVisible ? (
+                            <SyncLoader
+                                size={14}
+                                color={'#000'}
+                                loading
+                            /> 
+                        ) : (
+                            <DocumentInput
+                                className='document-input'
+                                onChange={e => this.updateDocumentBody(e.target.value)}
+                                placeholder='Document body...'
+                                value={this.documentBody}
+                            />
+                        )
+                    }
+                </InputWrapper>
             </Wrapper>
         );
     }

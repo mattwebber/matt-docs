@@ -5,6 +5,7 @@ import ioClient from 'socket.io-client';
 export class DocumentStore {
     @observable documentBody = '';
     @observable activeUsers = [];
+    @observable documentBodyReceived = false;
     @observable activeUserListReceived = false;
 
     socket = ioClient('http://127.0.0.1:3001'); // Establish a socket connection with the server.
@@ -17,6 +18,7 @@ export class DocumentStore {
     @action initSocket = () => {
         this.socket.on('document-updated', value => {
             this.updateDocumentBodyRaw(value);
+            this.documentBodyReceived = true;
         });
 
         this.socket.on('user-list-updated', value => {
