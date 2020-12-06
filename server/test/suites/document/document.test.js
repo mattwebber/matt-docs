@@ -1,4 +1,4 @@
-import { Document } from '../../src/document.mjs';
+import { Document } from '../../../src/document.mjs';
 
 describe('Document', () => {
     let document;

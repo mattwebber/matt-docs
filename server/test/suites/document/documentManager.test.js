@@ -1,4 +1,4 @@
-import { DocumentManager } from '../../src/documentManager.mjs';
+import { DocumentManager } from '../../../src/documentManager.mjs';
 
 describe('Document Manager', () => {
     let documentManager;
