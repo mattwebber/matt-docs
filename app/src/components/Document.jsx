@@ -30,6 +30,7 @@ const InputWrapper = styled.div`
 const DocumentInput = styled.textarea`
     height: 100%;
     width: 100%;
+    resize: none;
 `;
 
 @inject('stores')
