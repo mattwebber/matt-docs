@@ -18,10 +18,16 @@ io.on('connection', socket => {
     const newUser = userManager.addNewUser();
     socket.userId = newUser.id;
     console.log(`A new user has connected with id: ${socket.userId}`);
+
+    // Send the latest document body to the new user.
+    socket.emit('document-updated', documentManager.getDocument().body);
+
+    // Emit a broadcast updating everybody's active user list.
     io.emit('user-list-updated', userManager.getUserIds());
     
     socket.on('update-document', documentBody => {
         documentManager.updateDocumentBody(documentBody);
+        // Emit a broadcast for all but the invoking user to inform them of the document change.
         socket.broadcast.emit('document-updated', documentBody);
     });
 
